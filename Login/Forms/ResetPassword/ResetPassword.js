@@ -40,6 +40,7 @@ class ResetPassword extends BaseForm {
             wrapperStyle={this.props.inputWrapperStyle}
             style={this.props.inputStyle}
             placeholderTextColor={this.props.inputPlaceholderTextColor}
+            keyboardType={'email-address'}
           />
         </View>
 
