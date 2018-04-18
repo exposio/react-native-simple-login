@@ -31,6 +31,7 @@ class Login extends BaseForm {
             iconStyle={this.props.inputIconStyle}
             onChangeText={this.handleInputChange('userIdentification')}
             label={this.props.labels.userIdentification}
+            value={this.props.labels.userIdentificationValue}
             wrapperStyle={this.props.inputWrapperStyle}
             style={this.props.inputStyle}
             placeholderTextColor={this.props.inputPlaceholderTextColor}
@@ -43,6 +44,7 @@ class Login extends BaseForm {
             onChangeText={this.handleInputChange('password')}
             secureTextEntry
             label={this.props.labels.password}
+            value={this.props.labels.passwordValue}
             wrapperStyle={this.props.inputWrapperStyle}
             style={this.props.inputStyle}
             placeholderTextColor={this.props.inputPlaceholderTextColor}
