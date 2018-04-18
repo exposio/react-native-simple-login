@@ -5,9 +5,9 @@ import { Logo } from '../../Structure'
 
 class BaseForm extends Component {
   constructor (props) {
-    super(props)
+    super(props);
     this.state = {
-      userIdentification: '',
+      userIdentification: props.labels.userIdentificationValue,
       password: ''
     }
   }

@@ -9,12 +9,6 @@ class Login extends BaseForm {
     this.props.onLogin(this.state.userIdentification, this.state.password)
   }
 
-  componentWillReceiveProps(props) {
-    if (props.labels.userIdentificationValue !== '') {
-      this.setState({ userIdentification: props.labels.userIdentificationValue })
-    }
-  }
-
   renderResetPasswordLink = () => {
     return (
       <Button
