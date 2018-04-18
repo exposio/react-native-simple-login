@@ -7,7 +7,7 @@ class BaseForm extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      userIdentification: '',
+      userIdentification: this.props.labels.userIdentificationValue,
       password: ''
     }
   }
