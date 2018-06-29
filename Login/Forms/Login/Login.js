@@ -44,6 +44,7 @@ class Login extends BaseForm {
             keyboardType={'email-address'}
             testID={"Email"}
             accessibilityLabel={"Email"}
+            accessible={true}
           />
 
           <Input
@@ -58,6 +59,7 @@ class Login extends BaseForm {
             placeholderTextColor={this.props.inputPlaceholderTextColor}
             testID={"Password"}
             accessibilityLabel={"Password"}
+            accessible={true}
           />
         </View>
 
@@ -78,6 +80,7 @@ class Login extends BaseForm {
           text={this.props.labels.loginFormButton}
           testID={"Login button"}
           accessibilityLabel={"Login button"}
+          accessible={true}
         />
 
       </View>
