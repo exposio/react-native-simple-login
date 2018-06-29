@@ -42,6 +42,8 @@ class Login extends BaseForm {
             style={this.props.inputStyle}
             placeholderTextColor={this.props.inputPlaceholderTextColor}
             keyboardType={'email-address'}
+            testID={"Email"}
+            accessibilityLabel={"Email"}
           />
 
           <Input
@@ -54,6 +56,8 @@ class Login extends BaseForm {
             wrapperStyle={this.props.inputWrapperStyle}
             style={this.props.inputStyle}
             placeholderTextColor={this.props.inputPlaceholderTextColor}
+            testID={"Password"}
+            accessibilityLabel={"Password"}
           />
         </View>
 
@@ -72,6 +76,8 @@ class Login extends BaseForm {
             this.props.loginFormSubmitButtonTextStyle
           ]}
           text={this.props.labels.loginFormButton}
+          testID={"Login button"}
+          accessibilityLabel={"Login button"}
         />
 
       </View>
