@@ -6,7 +6,7 @@ import { Input, Button } from "../../Structure";
 
 class Signup extends BaseForm {
   submit = () => {
-    this.props.onSignup(this.state.userIdentification, this.state.password, this.state.passwordConfirm);
+    this.props.onSignup(this.state.username, this.state.password, this.state.passwordConfirm);
   };
 
   renderResetPasswordLink = () => {
@@ -29,7 +29,7 @@ class Signup extends BaseForm {
           <Input
             icon={this.props.userIdentificationInputIcon}
             iconStyle={this.props.inputIconStyle}
-            onChangeText={this.handleInputChange("userIdentification")}
+            onChangeText={this.handleInputChange("username")}
             label={this.props.labels.userIdentification}
             wrapperStyle={this.props.inputWrapperStyle}
             style={this.props.inputStyle}
