@@ -9,12 +9,6 @@ class Signup extends BaseForm {
     this.props.onSignup(this.state.userIdentification, this.state.password, this.state.passwordConfirm);
   };
 
-  componentWillReceiveProps(props) {
-    if (props.labels.userIdentificationValue !== "") {
-      this.setState({ userIdentification: props.labels.userIdentificationValue });
-    }
-  }
-
   renderResetPasswordLink = () => {
     return (
       <Button
@@ -89,7 +83,7 @@ class Signup extends BaseForm {
 
         {this.props.haveLogin && (
           <Button
-            onPress={this.onLoginClick}
+            onPress={this.props.onLoginClick}
             style={[this.props.baseButtonStyle, this.props.signupFormSubmitButtonStyle]}
             textStyle={[this.props.baseButtonTextStyle, this.props.signupFormSubmitButtonTextStyle]}
             text={this.props.labels.back}
