@@ -123,4 +123,58 @@ Login.defaultProps = {
   resetPasswordFormWrapperStyle: DefaultStyles.formWrappper
 }
 
+Signup.propTypes = {
+  labels: PropTypes.object,
+  logoImage: PropTypes.any,
+  onSignup: PropTypes.func.isRequired,
+  onResetPassword: PropTypes.func,
+  passwordInputIcon: PropTypes.any,
+  resetPasswordHeaderRenderer: PropTypes.func,
+  showLogoOnSignup: PropTypes.bool,
+  showLogoOnResetPassword: PropTypes.bool,
+  userIdentificationInputIcon: PropTypes.any,
+  inputPlaceholderTextColor: PropTypes.string,
+
+  backButtonStyle: PropTypes.any,
+  backButtonTextStyle: PropTypes.any,
+  baseButtonStyle: PropTypes.any,
+  baseButtonTextStyle: PropTypes.any,
+  inputIconStyle: PropTypes.any,
+  signupResetPasswordLinkStyle: PropTypes.any,
+  signupResetPasswordLinkTextStyle: PropTypes.any,
+  fieldsetWrapperStyle: PropTypes.any,
+  inputWrapperStyle: PropTypes.any,
+  inputStyle: PropTypes.any,
+  signupFormSubmitButtonStyle: PropTypes.any,
+  signupFormSubmitButtonTextStyle: PropTypes.any,
+  signupFormWrapperStyle: PropTypes.any,
+  logoStyle: PropTypes.any,
+  resetPasswordFormWrapperStyle: PropTypes.any,
+  resetPasswordFormSubmitButtonTextStyle: PropTypes.any,
+  resetPasswordFormSubmitButtonStyle: PropTypes.any
+}
+
+Signup.defaultProps = {
+  labels: {},
+  showLogoOnSignup: true,
+  showLogoOnResetPassword: true,
+  inputPlaceholderTextColor: '#ccc',
+  userIdentificationInputIcon: require('./Images/email_icon.png'),
+  passwordInputIcon: require('./Images/password_icon.png'),
+  backButtonStyle: DefaultStyles.backButton,
+  backButtonTextStyle: DefaultStyles.backButtonText,
+  baseButtonStyle: DefaultStyles.baseButton,
+  baseButtonTextStyle: DefaultStyles.baseButtonText,
+  fieldsetWrapperStyle: DefaultStyles.fieldsetWrapper,
+  inputIconStyle: DefaultStyles.inputIcon,
+  inputStyle: DefaultStyles.input,
+  inputWrapperStyle: DefaultStyles.inputWrapper,
+  signupFormWrapperStyle: DefaultStyles.formWrappper,
+  signupResetPasswordLinkStyle: DefaultStyles.loginResetPasswordLink,
+  signupResetPasswordLinkTextStyle: DefaultStyles.loginResetPasswordLinkText,
+  logoStyle: DefaultStyles.logo,
+  resetPasswordFormSubmitButtonStyle: DefaultStyles.resetPasswordFormSubmitButton,
+  resetPasswordFormWrapperStyle: DefaultStyles.formWrappper
+}
+
 export default Login

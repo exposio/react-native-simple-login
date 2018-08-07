@@ -4,21 +4,23 @@ import { View } from 'react-native'
 import BaseForm from '../BaseForm'
 import { Input, Button } from '../../Structure'
 
-class Login extends BaseForm {
+class Signup extends BaseForm {
   submit = () => {
-    this.props.onLogin(this.state.userIdentification, this.state.password)
+    this.props.onSignup(this.state.userIdentification, this.state.password)
   }
-  
+
   componentWillReceiveProps(props) {
-    console.log(props);
+    if (props.labels.userIdentificationValue !== '') {
+      this.setState({ userIdentification: props.labels.userIdentificationValue })
+    }
   }
 
   renderResetPasswordLink = () => {
     return (
       <Button
         onPress={this.props.onResetPasswordClick}
-        style={this.props.loginResetPasswordLinkStyle}
-        textStyle={this.props.loginResetPasswordLinkTextStyle}
+        style={this.props.signupResetPasswordLinkStyle}
+        textStyle={this.props.signupResetPasswordLinkTextStyle}
         text={this.props.labels.forgotPassword}
       />
     )
@@ -26,7 +28,7 @@ class Login extends BaseForm {
 
   render () {
     return (
-      <View style={this.props.loginFormWrapperStyle}>
+      <View style={this.props.signupFormWrapperStyle}>
         { this.renderLogo() }
 
         <View style={this.props.fieldsetWrapperStyle}>
@@ -40,6 +42,9 @@ class Login extends BaseForm {
             style={this.props.inputStyle}
             placeholderTextColor={this.props.inputPlaceholderTextColor}
             keyboardType={'email-address'}
+            testID={"Email"}
+            accessibilityLabel={"Email"}
+            accessible={true}
           />
 
           <Input
@@ -52,6 +57,24 @@ class Login extends BaseForm {
             wrapperStyle={this.props.inputWrapperStyle}
             style={this.props.inputStyle}
             placeholderTextColor={this.props.inputPlaceholderTextColor}
+            testID={"Password"}
+            accessibilityLabel={"Password"}
+            accessible={true}
+          />
+
+          <Input
+            icon={this.props.passwordInputIcon}
+            iconStyle={this.props.inputIconStyle}
+            onChangeText={this.handleInputChange('passwordConfirm')}
+            secureTextEntry
+            label={this.props.labels.passwordConfirm}
+            defaultValue={this.props.labels.passwordValue}
+            wrapperStyle={this.props.inputWrapperStyle}
+            style={this.props.inputStyle}
+            placeholderTextColor={this.props.inputPlaceholderTextColor}
+            testID={"Password confirm"}
+            accessibilityLabel={"Password confirm"}
+            accessible={true}
           />
         </View>
 
@@ -63,13 +86,16 @@ class Login extends BaseForm {
           onPress={this.submit}
           style={[
             this.props.baseButtonStyle,
-            this.props.loginFormSubmitButtonStyle
+            this.props.signupFormSubmitButtonStyle
           ]}
           textStyle={[
             this.props.baseButtonTextStyle,
-            this.props.loginFormSubmitButtonTextStyle
+            this.props.signupFormSubmitButtonTextStyle
           ]}
-          text={this.props.labels.loginFormButton}
+          text={this.props.labels.signupFormButton}
+          testID={"Signup button"}
+          accessibilityLabel={"Signup button"}
+          accessible={true}
         />
 
       </View>
@@ -77,4 +103,4 @@ class Login extends BaseForm {
   }
 }
 
-export default Login
+export default Signup
