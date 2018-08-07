@@ -92,7 +92,7 @@ class Signup extends BaseForm {
             onPress={this.onLoginClick}
             style={[this.props.baseButtonStyle, this.props.signupFormSubmitButtonStyle]}
             textStyle={[this.props.baseButtonTextStyle, this.props.signupFormSubmitButtonTextStyle]}
-            text={this.props.labels.signupFormButton}
+            text={this.props.labels.back}
             testID={"Show login button"}
             accessibilityLabel={"Show login button"}
             accessible={true}
