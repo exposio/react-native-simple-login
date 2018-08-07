@@ -56,8 +56,10 @@ class Login extends Component {
       <LoginForm
         {...this.props}
         haveResetPassword={!!this.props.onResetPassword}
+        haveSignup={!!this.props.onSignup}
         labels={this.getLabels()}
         onResetPasswordClick={this.changeToResetPasswordForm}
+        onSignupClick={this.changeToSignupForm}
         onLogin={this.onLogin}
         showLogo={this.props.showLogoOnLogin}
       />
@@ -68,9 +70,9 @@ class Login extends Component {
     return (
       <SignupForm
         {...this.props}
-        haveResetPassword={!!this.props.onResetPassword}
+        haveLogin={!!this.props.onLogin}
         labels={this.getLabels()}
-        onResetPasswordClick={this.changeToResetPasswordForm}
+        onLoginClick={this.changeToLoginForm}
         onLogin={this.onLogin}
         showLogo={this.props.showLogoOnLogin}
       />
@@ -93,6 +95,7 @@ Login.propTypes = {
   logoImage: PropTypes.any,
   onLogin: PropTypes.func.isRequired,
   onResetPassword: PropTypes.func,
+  onSignup: PropTypes.func,
   passwordInputIcon: PropTypes.any,
   resetPasswordHeaderRenderer: PropTypes.func,
   showLogoOnLogin: PropTypes.bool,

@@ -6,7 +6,7 @@ import { Input, Button } from '../../Structure'
 
 class Signup extends BaseForm {
   submit = () => {
-    this.props.onSignup(this.state.userIdentification, this.state.password)
+    this.props.onSignup(this.state.userIdentification, this.state.password, this.state.passwordConfirm)
   }
 
   componentWillReceiveProps(props) {
