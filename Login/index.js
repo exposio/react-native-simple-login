@@ -1,39 +1,43 @@
 import PropTypes from "prop-types";
-import React, { Component } from 'react'
-import DefaultStyles from './DefaultStyles'
-import defaultLabels from './constants/defaultLabels'
+import React, { Component } from "react";
+import DefaultStyles from "./DefaultStyles";
+import defaultLabels from "./constants/defaultLabels";
 
-import { LoginForm, ResetPasswordForm } from './Forms'
+import { LoginForm, SignupForm, ResetPasswordForm } from "./Forms";
 
 class Login extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {resetPasswordActive: false}
+  constructor(props) {
+    super(props);
+    this.state = { activeForm: "login" };
   }
 
   changeToResetPasswordForm = () => {
-    this.setState({resetPasswordActive: true})
-  }
+    this.setState({ activeForm: "resetPassword" });
+  };
 
   changeToLoginForm = () => {
-    this.setState({resetPasswordActive: false})
-  }
+    this.setState({ activeForm: "login" });
+  };
+
+  changeToSignupForm = () => {
+    this.setState({ activeForm: "signup" });
+  };
 
   getLabels = () => {
     return {
       ...defaultLabels,
       ...this.props.labels
-    }
-  }
+    };
+  };
 
   onLogin = (userIdentification, password) => {
-    this.props.onLogin(userIdentification, password)
-  }
+    this.props.onLogin(userIdentification, password);
+  };
 
-  onResetPassword = (userIdentification) => {
-    this.props.onResetPassword(userIdentification)
-    this.changeToLoginForm()
-  }
+  onResetPassword = userIdentification => {
+    this.props.onResetPassword(userIdentification);
+    this.changeToLoginForm();
+  };
 
   renderResetPassword = () => {
     return (
@@ -44,8 +48,8 @@ class Login extends Component {
         onResetPassword={this.onResetPassword}
         showLogo={this.props.showLogoOnResetPassword}
       />
-    )
-  }
+    );
+  };
 
   renderLoginForm = () => {
     return (
@@ -57,15 +61,30 @@ class Login extends Component {
         onLogin={this.onLogin}
         showLogo={this.props.showLogoOnLogin}
       />
-    )
-  }
+    );
+  };
 
-  render () {
-    if (this.state.resetPasswordActive && this.props.onResetPassword) {
-      return this.renderResetPassword()
+  renderSignupForm = () => {
+    return (
+      <SignupForm
+        {...this.props}
+        haveResetPassword={!!this.props.onResetPassword}
+        labels={this.getLabels()}
+        onResetPasswordClick={this.changeToResetPasswordForm}
+        onLogin={this.onLogin}
+        showLogo={this.props.showLogoOnLogin}
+      />
+    );
+  };
+
+  render() {
+    if (this.state.activeForm === "resetPassword" && this.props.onResetPassword) {
+      return this.renderResetPassword();
+    } else if (this.state.activeForm === "signup") {
+      return this.renderSignupForm();
     }
 
-    return this.renderLoginForm()
+    return this.renderLoginForm();
   }
 }
 
@@ -98,83 +117,6 @@ Login.propTypes = {
   resetPasswordFormWrapperStyle: PropTypes.any,
   resetPasswordFormSubmitButtonTextStyle: PropTypes.any,
   resetPasswordFormSubmitButtonStyle: PropTypes.any
-}
+};
 
-Login.defaultProps = {
-  labels: {},
-  showLogoOnLogin: true,
-  showLogoOnResetPassword: true,
-  inputPlaceholderTextColor: '#ccc',
-  userIdentificationInputIcon: require('./Images/email_icon.png'),
-  passwordInputIcon: require('./Images/password_icon.png'),
-  backButtonStyle: DefaultStyles.backButton,
-  backButtonTextStyle: DefaultStyles.backButtonText,
-  baseButtonStyle: DefaultStyles.baseButton,
-  baseButtonTextStyle: DefaultStyles.baseButtonText,
-  fieldsetWrapperStyle: DefaultStyles.fieldsetWrapper,
-  inputIconStyle: DefaultStyles.inputIcon,
-  inputStyle: DefaultStyles.input,
-  inputWrapperStyle: DefaultStyles.inputWrapper,
-  loginFormWrapperStyle: DefaultStyles.formWrappper,
-  loginResetPasswordLinkStyle: DefaultStyles.loginResetPasswordLink,
-  loginResetPasswordLinkTextStyle: DefaultStyles.loginResetPasswordLinkText,
-  logoStyle: DefaultStyles.logo,
-  resetPasswordFormSubmitButtonStyle: DefaultStyles.resetPasswordFormSubmitButton,
-  resetPasswordFormWrapperStyle: DefaultStyles.formWrappper
-}
-
-Signup.propTypes = {
-  labels: PropTypes.object,
-  logoImage: PropTypes.any,
-  onSignup: PropTypes.func.isRequired,
-  onResetPassword: PropTypes.func,
-  passwordInputIcon: PropTypes.any,
-  resetPasswordHeaderRenderer: PropTypes.func,
-  showLogoOnSignup: PropTypes.bool,
-  showLogoOnResetPassword: PropTypes.bool,
-  userIdentificationInputIcon: PropTypes.any,
-  inputPlaceholderTextColor: PropTypes.string,
-
-  backButtonStyle: PropTypes.any,
-  backButtonTextStyle: PropTypes.any,
-  baseButtonStyle: PropTypes.any,
-  baseButtonTextStyle: PropTypes.any,
-  inputIconStyle: PropTypes.any,
-  signupResetPasswordLinkStyle: PropTypes.any,
-  signupResetPasswordLinkTextStyle: PropTypes.any,
-  fieldsetWrapperStyle: PropTypes.any,
-  inputWrapperStyle: PropTypes.any,
-  inputStyle: PropTypes.any,
-  signupFormSubmitButtonStyle: PropTypes.any,
-  signupFormSubmitButtonTextStyle: PropTypes.any,
-  signupFormWrapperStyle: PropTypes.any,
-  logoStyle: PropTypes.any,
-  resetPasswordFormWrapperStyle: PropTypes.any,
-  resetPasswordFormSubmitButtonTextStyle: PropTypes.any,
-  resetPasswordFormSubmitButtonStyle: PropTypes.any
-}
-
-Signup.defaultProps = {
-  labels: {},
-  showLogoOnSignup: true,
-  showLogoOnResetPassword: true,
-  inputPlaceholderTextColor: '#ccc',
-  userIdentificationInputIcon: require('./Images/email_icon.png'),
-  passwordInputIcon: require('./Images/password_icon.png'),
-  backButtonStyle: DefaultStyles.backButton,
-  backButtonTextStyle: DefaultStyles.backButtonText,
-  baseButtonStyle: DefaultStyles.baseButton,
-  baseButtonTextStyle: DefaultStyles.baseButtonText,
-  fieldsetWrapperStyle: DefaultStyles.fieldsetWrapper,
-  inputIconStyle: DefaultStyles.inputIcon,
-  inputStyle: DefaultStyles.input,
-  inputWrapperStyle: DefaultStyles.inputWrapper,
-  signupFormWrapperStyle: DefaultStyles.formWrappper,
-  signupResetPasswordLinkStyle: DefaultStyles.loginResetPasswordLink,
-  signupResetPasswordLinkTextStyle: DefaultStyles.loginResetPasswordLinkText,
-  logoStyle: DefaultStyles.logo,
-  resetPasswordFormSubmitButtonStyle: DefaultStyles.resetPasswordFormSubmitButton,
-  resetPasswordFormWrapperStyle: DefaultStyles.formWrappper
-}
-
-export default Login
+export default Login;
