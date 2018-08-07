@@ -41,7 +41,7 @@ export default StyleSheet.create({
     backgroundColor: '#446cb3',
     alignSelf: 'stretch',
     justifyContent: 'center',
-    marginVertical: 10
+    marginVertical: 3
   },
   baseButtonText: {
     color: '#fff',

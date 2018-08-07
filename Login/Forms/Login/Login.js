@@ -77,7 +77,7 @@ class Login extends BaseForm {
 
         {this.props.haveSignup && (
           <Button
-            onPress={this.submit}
+            onPress={this.props.onSignupClick}
             style={[this.props.baseButtonStyle, this.props.loginFormSubmitButtonStyle]}
             textStyle={[this.props.baseButtonTextStyle, this.props.loginFormSubmitButtonTextStyle]}
             text={this.props.labels.signupFormButton}
