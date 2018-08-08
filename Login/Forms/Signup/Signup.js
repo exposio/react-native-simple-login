@@ -41,6 +41,32 @@ class Signup extends BaseForm {
           />
 
           <Input
+            icon={this.props.userIdentificationInputIcon}
+            iconStyle={this.props.inputIconStyle}
+            onChangeText={this.handleInputChange("firstName")}
+            label={this.props.labels.firstName}
+            wrapperStyle={this.props.inputWrapperStyle}
+            style={this.props.inputStyle}
+            placeholderTextColor={this.props.inputPlaceholderTextColor}
+            testID={"First Name"}
+            accessibilityLabel={"First Name"}
+            accessible={true}
+          />
+
+          <Input
+            icon={this.props.userIdentificationInputIcon}
+            iconStyle={this.props.inputIconStyle}
+            onChangeText={this.handleInputChange("lastName")}
+            label={this.props.labels.lastName}
+            wrapperStyle={this.props.inputWrapperStyle}
+            style={this.props.inputStyle}
+            placeholderTextColor={this.props.inputPlaceholderTextColor}
+            testID={"Last Name"}
+            accessibilityLabel={"Last Name"}
+            accessible={true}
+          />
+
+          <Input
             icon={this.props.passwordInputIcon}
             iconStyle={this.props.inputIconStyle}
             onChangeText={this.handleInputChange("password")}
