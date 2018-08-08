@@ -6,7 +6,13 @@ import { Input, Button } from "../../Structure";
 
 class Signup extends BaseForm {
   submit = () => {
-    this.props.onSignup(this.state.username, this.state.password, this.state.passwordConfirm);
+    this.props.onSignup(
+      this.state.username,
+      this.state.password,
+      this.state.passwordConfirm,
+      this.state.firstName,
+      this.state.lastName
+    );
   };
 
   renderResetPasswordLink = () => {
