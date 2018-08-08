@@ -51,7 +51,7 @@ export default StyleSheet.create({
   formWrappper: {
     justifyContent: 'center',
     flex: 1,
-    paddingHorizontal: 15,
+    // paddingHorizontal: 15,
     bottom: 80
   },
   loginResetPasswordLink: {
