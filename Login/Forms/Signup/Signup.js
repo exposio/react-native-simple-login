@@ -47,7 +47,7 @@ class Signup extends BaseForm {
           />
 
           <Input
-            icon={this.props.userIdentificationInputIcon}
+            icon={this.props.nameInputIcon}
             iconStyle={this.props.inputIconStyle}
             onChangeText={this.handleInputChange("firstName")}
             label={this.props.labels.firstName}
@@ -60,7 +60,7 @@ class Signup extends BaseForm {
           />
 
           <Input
-            icon={this.props.userIdentificationInputIcon}
+            icon={this.props.nameInputIcon}
             iconStyle={this.props.inputIconStyle}
             onChangeText={this.handleInputChange("lastName")}
             label={this.props.labels.lastName}
