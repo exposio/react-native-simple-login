@@ -113,17 +113,17 @@ class Signup extends BaseForm {
           accessible={true}
         />
 
-        {this.props.haveLogin && (
-          <Button
-            onPress={this.props.onLoginClick}
-            style={[this.props.baseButtonStyle, this.props.signupFormSubmitButtonStyle]}
-            textStyle={[this.props.baseButtonTextStyle, this.props.signupFormSubmitButtonTextStyle]}
-            text={this.props.labels.back}
-            testID={"Show login button"}
-            accessibilityLabel={"Show login button"}
-            accessible={true}
-          />
-        )}
+        // {this.props.haveLogin && (
+        //   <Button
+        //     onPress={this.props.onLoginClick}
+        //     style={[this.props.baseButtonStyle, this.props.signupFormSubmitButtonStyle]}
+        //     textStyle={[this.props.baseButtonTextStyle, this.props.signupFormSubmitButtonTextStyle]}
+        //     text={this.props.labels.back}
+        //     testID={"Show login button"}
+        //     accessibilityLabel={"Show login button"}
+        //     accessible={true}
+        //   />
+        // )}
       </View>
     );
   }
