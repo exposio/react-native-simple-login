@@ -8,7 +8,7 @@ import { LoginForm, SignupForm, ResetPasswordForm } from "./Forms";
 class Login extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeForm: "login" };
+    this.state = { activeForm: this.props.activeForm };
   }
 
   changeToResetPasswordForm = () => {
